@@ -28,7 +28,6 @@
 
 FactoryBot.define do
   factory :article do
-    sequence(:title, "title_1")
-    state { 0 }
+    
   end
 end
