@@ -40,6 +40,14 @@ class Admin::ArticlesController < ApplicationController
     else
       render :edit
     end
+
+    if @article.published_at > Time.current && !@article.draft?
+      @article.state = :publish_wait
+    elsif @article.published_at <= Time.current && !@article.draft?
+      @article.state = :published
+    end
+    
+    @article.save
   end
 
   def destroy
