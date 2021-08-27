@@ -33,21 +33,14 @@ class Admin::ArticlesController < ApplicationController
 
   def update
     authorize(@article)
-
-    if @article.update(article_params)
+    @article.assign_attributes(article_params)
+    @article.adjust_state
+    if @article.save
       flash[:notice] = '更新しました'
       redirect_to edit_admin_article_path(@article.uuid)
     else
       render :edit
     end
-
-    if @article.published_at > Time.current && !@article.draft?
-      @article.state = :publish_wait
-    elsif @article.published_at <= Time.current && !@article.draft?
-      @article.state = :published
-    end
-    
-    @article.save
   end
 
   def destroy
