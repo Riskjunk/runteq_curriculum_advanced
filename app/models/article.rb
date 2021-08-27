@@ -110,6 +110,6 @@ class Article < ApplicationRecord
                    :published
                  else
                    :publish_wait
-                end
+                 end
   end
 end
