@@ -108,8 +108,8 @@ class Article < ApplicationRecord
 
     self.state = if publishable?
                     :published
-                  else
+                 else
                     :publish_wait
-                  end
+                end
   end
 end
