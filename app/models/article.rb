@@ -105,10 +105,11 @@ class Article < ApplicationRecord
 
   def adjust_state
     return if draft?
-    self.state = if publishable?
-      :published
+
+    if publishable?
+      self.state = :published
     else
-      :publish_wait
+      self.state = :publish_wait
     end
   end
 end

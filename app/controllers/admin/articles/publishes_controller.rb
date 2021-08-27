@@ -7,7 +7,7 @@ class Admin::Articles::PublishesController < ApplicationController
     @article.published_at = Time.current unless @article.published_at?
     @article.state = @article.publishable? ? :published : :publish_wait
     flash[:notice] = @article.message_on_published
-    
+
     if @article.valid?
       Article.transaction do
         @article.body = @article.build_body(self)
