@@ -2,7 +2,7 @@ class TagPolicy < TaxonomyPolicy
   def index?
     user.admin? || user.editor?
   end
-  
+
   def edit?
     user.admin? || user.editor?
   end
