@@ -30,7 +30,7 @@ FactoryBot.define do
     end
 
     trait :editor do
-      sequence(:name) { |n| " editor_#{n}" }
+      sequence(:name) { |n| "editor_#{n}" }
       role { :editor }
     end
 
