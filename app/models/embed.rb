@@ -18,6 +18,6 @@ class Embed < ApplicationRecord
   validates :identifier, length: { maximum: 200 }
 
   def split_id_from_youtube_url
-    identifier.split("/").last
+    identifier.split('/').last
   end
 end
