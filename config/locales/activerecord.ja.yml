@@ -46,6 +46,7 @@ ja:
         author: '著者'
         published_at: '公開日'
         eyecatch_width: 'アイキャッチ幅'
+        eyecatch_position: '位置'
     errors:
       models:
         user:

@@ -15,6 +15,8 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  deleted_at   :datetime
+#  eyecatch_position :integer
+#  eyecatch_width :integer
 #
 # Indexes
 #
@@ -47,7 +49,7 @@ class Article < ApplicationRecord
   validates :description, length: { maximum: 1000 }, allow_blank: true
   validates :state, presence: true
   validates :eye_catch, attachment: { purge: true, content_type: %r{\Aimage/(png|jpeg)\Z}, maximum: 10_485_760 }
-  validates :eyecatch_width, numericality: { less_than_or_equal_to: 700, greater_than_or_equal_to: 100 }, allow_nil: true
+  validates :eyecatch_width, numericality: { less_than_or_equal_to: 700, greater_than_or_equal_to: 100 }, allow_blank: true
 
   with_options if: :published? do
     validates :slug, slug_format: true, presence: true, length: { maximum: 255 }

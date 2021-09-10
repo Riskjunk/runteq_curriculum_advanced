@@ -15,6 +15,8 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  deleted_at   :datetime
+#  eyecatch_position :integer
+#  eyecatch_width :integer
 #
 # Indexes
 #
