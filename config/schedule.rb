@@ -25,3 +25,7 @@ set :output, "#{Rails.root}/log/cron.log"
 every :hour do
   rake 'status_task:published'
 end
+
+every 1.day, at: '9am' do
+  rake 'article_summary:mail_article_summary'
+end
